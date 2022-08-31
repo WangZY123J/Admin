@@ -1,0 +1,14 @@
+// 处理 input 的白/蓝边
+.el-input__wrapper {
+  background-color: inherit !important;
+  box-shadow: none !important;
+}
+
+// 处理图片的灰色底
+.el-avatar {
+  --el-avatar-bg-color: none !important;
+}
+
+.el-input__inner{
+  margin-top: 3px !important;
+}
