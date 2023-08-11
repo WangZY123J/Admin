@@ -10,7 +10,7 @@ const service = axios.create({
 
 service.interceptors.request.use(
   (config) => {
-    //获取用户信息需要对应的 token，对token进行统一注入
+    // 获取用户信息需要对应的 token，对token进行统一注入
     if (store.getters.token) {
       if (isCheckTimeout()) {
         store.dispatch('user/logout')
@@ -18,9 +18,9 @@ service.interceptors.request.use(
       }
       config.headers.Authorization = `Bearer ${store.getters.token}`
     }
-    //注入icode
-    config.headers.icode = 'DFE62F74D05CC630'
-    //配置请求接口国际化
+    // 注入icode
+    config.headers.icode = 'C58E22357D14C0A7'
+    // 配置请求接口国际化
     config.headers['Accept-Language'] = store.getters.language
     return config
   },
@@ -32,26 +32,26 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   (response) => {
     const { success, message, data } = response.data
-    //根据 success 是否成功决定下面操作
+    // 根据 success 是否成功决定下面操作
     if (success) {
       return data
     } else {
-      //业务错误(用户名输错...)
-      ElMessage.error(message) //提示错误信息
+      // 业务错误(用户名输错...)
+      ElMessage.error(message) // 提示错误信息
       return Promise.reject(new Error(message))
     }
   },
   (error) => {
-    //处理token超时问题
+    // 处理token超时问题
     if (
       error.response &&
       error.response.data &&
       error.response.data.code === 401
     ) {
-      //token超时
+      // token超时
       store.dispatch('user/logout')
     }
-    ElMessage.error(error.message) //提示错误信息
+    ElMessage.error(error.message) // 提示错误信息
     return Promise.reject(error)
   }
 )
