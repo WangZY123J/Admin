@@ -6,9 +6,11 @@ export const generateTitle = (title) => {
   return i18n.global.t('msg.route.' + title)
 }
 
-
-//语言变化时，把所有函数扔进去重新计算
-//callbacks.forEach((callback) => callback(store.getters.language))
+/**
+ * 语言变化时，把所有函数扔进去重新计算
+ * @param  {...any} callbacks
+ */
+// callbacks.forEach((callback) => callback(store.getters.language))
 export const watchSwitchLang = (...callbacks) => {
   watch(
     () => store.getters.language,
