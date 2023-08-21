@@ -35,7 +35,6 @@ const activeMenu = computed(() => {
   return path
 })
 
-
 </script>
 
 <style lang="scss" scoped></style>

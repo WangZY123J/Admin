@@ -3,7 +3,6 @@
 </template>
 
 <script setup>
-import {} from 'vue'
 import UploadExcel from '@/components/UploadExcel'
 import { USER_RELATIONS, formatDate } from './utils'
 import { userBatchImport } from '@/api/user-manage'
@@ -26,7 +25,6 @@ const onSuccess = async ({ header, results }) => {
 }
 
 //筛选数据，把中文表头换成英文
-
 const generateData = (results) => {
   const arr = []
   results.forEach((item) => {
@@ -42,6 +40,7 @@ const generateData = (results) => {
   })
   return arr
 }
+
 </script>
 
 <style lang="scss" scoped></style>

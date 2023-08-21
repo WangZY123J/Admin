@@ -1,5 +1,6 @@
 <template>
   <div class="upload-excel">
+    <!-- 按钮 -->
     <div class="btn-upload">
       <el-button :loading="loading" type="primary" @click="handleUpload">{{
         $t('msg.uploadExcel.upload')
@@ -14,6 +15,7 @@
       @change="handleChange"
     />
 
+    <!-- 拖拽 -->
     <div
       class="drop"
       @drop.stop.prevent="handleDrop"

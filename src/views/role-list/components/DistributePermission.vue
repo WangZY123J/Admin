@@ -43,7 +43,6 @@ const props = defineProps({
     required: true
   }
 })
-const emits = defineEmits(['update:modelValue'])
 
 //属性结构设置
 const defaultProps = {
@@ -86,6 +85,7 @@ const onConfirm = async () => {
   closed()
 }
 
+const emits = defineEmits(['update:modelValue'])
 //关闭
 const closed = () => {
   emits('update:modelValue', false)

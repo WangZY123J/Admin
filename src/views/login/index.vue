@@ -104,7 +104,6 @@ const handleLogin = () => {
         loading = false
       })
       .catch((err) => {
-        console.log(err)
         loading = false
       })
   })
